@@ -20,6 +20,8 @@ export default function RootLayout() {
     ProximaNovaRegular: require('../assets/fonts/ProximaNovaRegular.otf'),
     ProximaNovaSemiBold: require('../assets/fonts/ProximaNovaSemibold.otf'),
     ProximaNovaThin: require('../assets/fonts/ProximaNovaThin.otf'),
+    Gothic: require('../assets/fonts/DidactGothic-Regular.ttf'),
+    PoppinsBold: require('../assets/fonts/Poppins-Bold.ttf'),
   });
 
   useEffect(() => {
