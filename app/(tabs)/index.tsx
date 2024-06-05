@@ -1,4 +1,4 @@
-import { FlatList, FlatListComponent, StyleSheet, Text, View } from "react-native";
+import {  FlatListComponent, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
@@ -12,6 +12,32 @@ import { SearchIcon } from "@/modules/common/icons";
 import DonationProgressBar from "@/modules/donations/components/DonationProgressBar";
 import DonationCard from "@/modules/donations/components/DonationCard";
 import useDonationPlans, { DonationPlan } from "@/modules/donations/hooks/useDonationPlans";
+import CalculatorList from "@/modules/calculators/components/CalculatorList";
+import { FlatList, GestureHandlerRootView } from "react-native-gesture-handler";
+import { ScrollView } from 'react-native-virtualized-view';
+
+import Svg, { Path } from 'react-native-svg';
+
+const CustomShape = () => {
+  return (
+    <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+      <Svg
+      width={324}
+      height={76}
+      viewBox="0 0 324 76"
+      fill="none"
+    >
+      <Path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M190.57 23.127a25.155 25.155 0 00-4.505-.404H25.205c-13.808 0-25 11.193-25 25v3.017c0 13.807 11.192 25 25 25h268.279c16.595 0 30.048-10.297 30.048-23V.127c0 12.703-13.453 23-30.048 23H190.57z"
+        fill="#fff"
+      />
+    </Svg>
+    </View>
+  );
+};
+
 
 const index = () => {
   const donationPlans = useDonationPlans();
@@ -21,9 +47,10 @@ const index = () => {
   );
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flex: 1}}>
+      <GestureHandlerRootView style={{flex: 1}}>
       <StatusBar style="light" backgroundColor={Colors.light.orange} />
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <LinearGradient
           colors={[
             Colors.light.orange,
@@ -56,8 +83,6 @@ const index = () => {
             </View>
           </View>
 
-          
-
           <View style={styles.progressBarBox}>
             <DonationProgressBar goal={100} progress={30} nearToComplete={30} />
           </View>
@@ -68,12 +93,13 @@ const index = () => {
               keyExtractor={(item) => item.id.toString()}
               numColumns={2}
             />
-            </View>
-          
-         
-            
+          </View>
+          <CalculatorList />
         </LinearGradient>
-      </View>
+        <CustomShape />
+      </ScrollView>
+      
+      </GestureHandlerRootView>
     </SafeAreaView>
   );
 };
@@ -85,15 +111,14 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   background: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
     minHeight: vh(70),
   },
   logoContainer: {
     flexDirection: "row",
     alignItems: "center",
+    flex: 1,
+    justifyContent: 'space-between',
+    marginRight: rem(20)
   },
   userTextBox: {
     flexDirection: "row",
@@ -112,8 +137,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
-    marginRight: 20,
-    transform: [{ translateX: rem(-24) }, { translateY: rem(8) }],
+    transform: [{ translateY: rem(8) }],
   },
   progressBarBox: {
     paddingHorizontal: rem(24),
