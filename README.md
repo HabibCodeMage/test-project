@@ -51,7 +51,7 @@ npm install -g expo-cli
 npm install
 ```
 
-6. Start the app
+6. Start the expo app
 
 ```bash
 npm run start
