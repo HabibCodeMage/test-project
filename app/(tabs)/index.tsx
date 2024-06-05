@@ -18,6 +18,9 @@ import { ScrollView } from 'react-native-virtualized-view';
 
 import EmergencyCard from "@/modules/emergency/components/EmergencyCard";
 import EmergencyList from "@/modules/emergency/components/EmergencyList";
+import ImageCard from "@/modules/common/components/ImageCard";
+import FeaturedList from "@/modules/featured/components/FeaturedList";
+import EventsList from "@/modules/events/components/EventsList";
 
 const index = () => {
   const donationPlans = useDonationPlans();
@@ -74,9 +77,24 @@ const index = () => {
               numColumns={2}
             />
           </View>
+          <Text style={styles.calcText}>Calculators</Text>
           <CalculatorList />
         </LinearGradient>
+          <View>
+          <Text style={styles.secondaryTxt}>Emergency Response</Text>
           <EmergencyList />
+          </View>
+          <View>
+          <Text style={styles.secondaryTxt}>Featured Causes</Text>
+
+          <FeaturedList />
+          </View>
+
+          <View>
+          <Text style={styles.secondaryTxt}>Events</Text>
+
+          <EventsList />
+          </View>
 
       </ScrollView>
       
@@ -127,5 +145,18 @@ const styles = StyleSheet.create({
   },
   subBox: {
     paddingHorizontal: rem(14),
+  },
+  calcText: {
+    paddingHorizontal: rem(16),
+    fontSize: rf(16),
+    fontFamily: FontFamily.ProximaNovaBold,
+    marginVertical: 10,
+  },
+  secondaryTxt: {
+    color: '#5A606D',
+    fontSize: rf(18),
+    fontFamily: FontFamily.ProximaNovaBold,
+    paddingHorizontal: rem(16),
+    marginVertical: 10,
   }
 });
