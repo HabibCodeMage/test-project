@@ -3,7 +3,7 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import { Colors } from "@/modules/common/constants/Colors";
-import { rem, vh } from "@/modules/common/utils";
+import { rem, rf, vh } from "@/modules/common/utils";
 import { StatusBar } from "expo-status-bar";
 import { ThemedText } from "@/modules/common/components/ThemedText";
 import Logo from "@/modules/common/components/Logo";
@@ -16,28 +16,8 @@ import CalculatorList from "@/modules/calculators/components/CalculatorList";
 import { FlatList, GestureHandlerRootView } from "react-native-gesture-handler";
 import { ScrollView } from 'react-native-virtualized-view';
 
-import Svg, { Path } from 'react-native-svg';
-
-const CustomShape = () => {
-  return (
-    <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
-      <Svg
-      width={324}
-      height={76}
-      viewBox="0 0 324 76"
-      fill="none"
-    >
-      <Path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M190.57 23.127a25.155 25.155 0 00-4.505-.404H25.205c-13.808 0-25 11.193-25 25v3.017c0 13.807 11.192 25 25 25h268.279c16.595 0 30.048-10.297 30.048-23V.127c0 12.703-13.453 23-30.048 23H190.57z"
-        fill="#fff"
-      />
-    </Svg>
-    </View>
-  );
-};
-
+import EmergencyCard from "@/modules/emergency/components/EmergencyCard";
+import EmergencyList from "@/modules/emergency/components/EmergencyList";
 
 const index = () => {
   const donationPlans = useDonationPlans();
@@ -96,7 +76,8 @@ const index = () => {
           </View>
           <CalculatorList />
         </LinearGradient>
-        <CustomShape />
+          <EmergencyList />
+
       </ScrollView>
       
       </GestureHandlerRootView>
@@ -127,10 +108,10 @@ const styles = StyleSheet.create({
   },
   userText: {
     fontFamily: FontFamily.ProximaNovaExtraBold,
-    fontSize: rem(24),
+    fontSize: rf(24),
   },
   lastName: {
-    fontSize: rem(24),
+    fontSize: rf(24),
     fontFamily: FontFamily.ProximaNovaSemiBold,
   },
   iconBox: {

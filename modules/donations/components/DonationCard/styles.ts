@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 import { Colors } from "../../../common/constants/Colors";
-import { rem } from "../../../common/utils";
+import { rem, rf } from "../../../common/utils";
 import { FontFamily } from "../../../common/constants/FontFamily";
 
 const styles = StyleSheet.create({
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   },
   heading: {
     color: '#000',
-    fontSize: rem(16),
+    fontSize: rf(16),
     fontFamily: FontFamily.ProximaNovaBold
   },
   body:{

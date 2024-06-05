@@ -3,7 +3,7 @@ import React from 'react'
 import { ThemedText } from './ThemedText'
 import { LogoIcon } from '../icons'
 import { Colors } from '../constants/Colors'
-import { rem } from '../utils'
+import { rf } from '../utils'
 import { FontFamily } from '../constants/FontFamily'
 
 export default function Logo() {
@@ -33,11 +33,11 @@ const styles = StyleSheet.create({
     top: 30
   },
   pennyText: {
-    fontSize: rem(32),
+    fontSize: rf(32),
     fontFamily: FontFamily.Gothic
   },
   appealText: {
-    fontSize: rem(26),
+    fontSize: rf(26),
     fontFamily: FontFamily.PoppinsBold
   }
 });

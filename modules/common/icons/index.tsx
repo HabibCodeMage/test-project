@@ -10,4 +10,7 @@ export { default as RoundUpFillIcon} from './RoundUpFill'
 export { default as QuickDonateIcon} from './QuickDonate'
 export { default as PortFolioFill} from './PortFolioFill'
 export { default as AutoDonateFill} from './AutoDonateFill'
+export { default as DonationCountIcon} from './DonationCount'
+
+
 

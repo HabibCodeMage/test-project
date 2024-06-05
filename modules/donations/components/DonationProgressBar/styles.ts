@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 import { Colors } from "../../../common/constants/Colors";
-import { rem } from "../../../common/utils";
+import { rem, rf } from "../../../common/utils";
 import { FontFamily } from "../../../common/constants/FontFamily";
 
 const styles = StyleSheet.create({
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     },
     donationText: {
         color: Colors.light.white,
-        fontSize: rem(14),
+        fontSize: rf(14),
         fontFamily: FontFamily.ProximaNovaSemiBold
     },
     nearToCompleteFill: {
